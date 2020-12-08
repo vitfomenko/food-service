@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Timer
 
-    const deadline = '2021-12-31';
+    const deadline = '2020-12-31';
 
     function getTimeRemaining (endtime) {
         const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -60,11 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     function getZero (num) {
-        if (num >= 0 && num < 10) {
-            return `0${num}`;
-        } else {
-            return num;
-        }
+        
     }
  
     function setClock (selector, endtime) {
@@ -80,10 +76,10 @@ window.addEventListener('DOMContentLoaded', () => {
         function updateClock () {
             const t = getTimeRemaining(endtime);
 
-            days.innerHTML = getZero(t.days);
-            hours.innerHTML = getZero(t.hours);
-            minutes.innerHTML = getZero(t.minutes);
-            seconds.innerHTML = getZero(t.seconds);
+            days.innerHTML = t.days;
+            hours.innerHTML = t.hours;
+            minutes.innerHTML = t.minutes;
+            seconds.innerHTML = t.seconds;
 
             if (t.total <= 0) {
                 clearInterval(timeInterval);
