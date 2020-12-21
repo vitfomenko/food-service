@@ -251,10 +251,9 @@ window.addEventListener("DOMContentLoaded", () => {
         object[key] = value;
       });
 
-      const json = JSON.stringify(object);
+      const json = JSON.st
 
-
-      request.send(json);
+      request.send(formData);
 
       request.addEventListener('load', () => {
         if (request.status === 200) {

@@ -252,9 +252,9 @@ window.addEventListener("DOMContentLoaded", () => {
       });
 
       const json = JSON.stringify(object);
+      
 
-
-      request.send(json);
+      request.send(formData);
 
       request.addEventListener('load', () => {
         if (request.status === 200) {
