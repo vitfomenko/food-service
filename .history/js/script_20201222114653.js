@@ -242,28 +242,34 @@ window.addEventListener("DOMContentLoaded", () => {
 
       const formData = new FormData(form);
 
-      const object = {};
-        formData.forEach(function (value, key) {
-        object[key] = value;
-      });
+      // const object = {};
+      // formData.forEach(function (value, key) {
+      //   object[key] = value;
+      // });
+
+      // const json = JSON.stringify(object);
+
+
+      // request.send(json);
 
       fetch('server.php', {
         method: "POST",
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify(object)
+        headers: 'Content-type', 'application/json',
+        body: formData
+      }).then(data => {
+        
       })
-      .then(data => data.text())
-      .then(data => {
-          console.log(data);
-          showThanksModal(message.success);
-          statusMessage.remove();
-      }).catch(() => {
-          showThanksModal(message.failure);
-      }).finally(() => {
-          form.reset();
-      });
+
+      // request.addEventListener('load', () => {
+      //   if (request.status === 200) {
+      //     console.log(request.response);
+      //     showThanksModal(message.success);
+      //     form.reset();
+      //     statusMessage.remove();
+      //   } else {
+      //     showThanksModal(message.failure);
+      //   }
+      // });
     });
   }
 
@@ -289,7 +295,7 @@ window.addEventListener("DOMContentLoaded", () => {
       prevModalDialog.classList.add('show');
       prevModalDialog.classList.remove('hide');
       closeModal();
-    }, 4000);
+    }, 4000)
   }
 
 });

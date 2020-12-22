@@ -243,15 +243,17 @@ window.addEventListener("DOMContentLoaded", () => {
       const formData = new FormData(form);
 
       const object = {};
-        formData.forEach(function (value, key) {
+      formData.forEach(function (value, key) {
         object[key] = value;
       });
 
+      const json = 
+
       fetch('server.php', {
         method: "POST",
-        headers: {
-          'Content-type': 'application/json'
-        },
+        // headers: {
+        //   'Content-type': 'application/json'
+        // },
         body: JSON.stringify(object)
       })
       .then(data => data.text())

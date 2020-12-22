@@ -238,31 +238,34 @@ window.addEventListener("DOMContentLoaded", () => {
         display: block;
         margin: 0 auto;
       `;
-      form.insertAdjacentElement('afterend', statusMessage);
+      form.append(statusMessage);
+      form.insertAdja
 
+      const request = new XMLHttpRequest();
+      request.open('POST', 'server.php');
+
+      request.setRequestHeader('Content-type', 'application/json');
       const formData = new FormData(form);
 
       const object = {};
-        formData.forEach(function (value, key) {
+      formData.forEach(function (value, key) {
         object[key] = value;
       });
 
-      fetch('server.php', {
-        method: "POST",
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify(object)
-      })
-      .then(data => data.text())
-      .then(data => {
-          console.log(data);
+      const json = JSON.stringify(object);
+
+
+      request.send(json);
+
+      request.addEventListener('load', () => {
+        if (request.status === 200) {
+          console.log(request.response);
           showThanksModal(message.success);
-          statusMessage.remove();
-      }).catch(() => {
-          showThanksModal(message.failure);
-      }).finally(() => {
           form.reset();
+          statusMessage.remove();
+        } else {
+          showThanksModal(message.failure);
+        }
       });
     });
   }
@@ -289,7 +292,6 @@ window.addEventListener("DOMContentLoaded", () => {
       prevModalDialog.classList.add('show');
       prevModalDialog.classList.remove('hide');
       closeModal();
-    }, 4000);
+    }, 4000)
   }
-
 });
