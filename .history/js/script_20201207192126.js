@@ -1,4 +1,0 @@
-window.addEventListener('DOMContentLoader', () => {
-
-    const 
-});

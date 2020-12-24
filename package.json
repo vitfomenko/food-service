@@ -1,0 +1,25 @@
+{
+  "name": "food",
+  "version": "1.0.0",
+  "description": "food service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitfomenko/food-service.git"
+  },
+  "keywords": [
+    "food"
+  ],
+  "author": "Vitalii Fomenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitfomenko/food-service/issues"
+  },
+  "homepage": "https://github.com/vitfomenko/food-service#readme",
+  "devDependencies": {
+    "json-server": "^0.16.3"
+  }
+}
