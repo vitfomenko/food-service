@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/vitfomenko/food-service#readme",
   "devDependencies": {
-    "json-server": "^0.16.3"
+    "json-server": "^0.16.3",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.0"
   }
 }
